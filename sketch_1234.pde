@@ -16,7 +16,7 @@ void setup() {
 void drawCreature(int point_x, int point_y) {
     background(200);
     background(bg);
-    
+
     //Head
     fill(65,100,218);
     ellipse(point_x+250+HEAD_WIDTH_HEIGHT/2, point_y + BODY_HEIGHT/7 - HEAD_WIDTH_HEIGHT/5, HEAD_WIDTH_HEIGHT, HEAD_WIDTH_HEIGHT);
@@ -40,18 +40,19 @@ void draw() {
 
 //KeyPress... Allows users to use their arrow keys to move creature
 void keyReleased() {
+
   if(key == CODED) {
-      if(keyCode == 38 && start_y > 0) {
-        start_y -= SPEED;
-      }
-      else if(keyCode == 40 && start_y < height - (50 + BODY_HEIGHT)) {
-        start_y += SPEED;
-      }
-      else if(keyCode == 37 && start_x > 0) {
-        start_x -= SPEED;
-      }
-      else if(keyCode == 39 && start_x < width - (50 + BODY_WIDTH + HEAD_WIDTH_HEIGHT)) {
-        start_x += SPEED;
-      }
+    if(keyCode == 37 && start_x > 0) {
+      start_x -= SPEED;
     }
-  } 
+    else if(keyCode == 38 && start_y > 0) {
+      start_y -= SPEED;
+    }
+    else if(keyCode == 39 && start_x < width - (50 + BODY_WIDTH + HEAD_WIDTH_HEIGHT)) {
+      start_x += SPEED;
+    }
+    else if(keyCode == 40 && start_y < height - (50 + BODY_HEIGHT)) {
+      start_y += SPEED;
+    }
+  }
+}
